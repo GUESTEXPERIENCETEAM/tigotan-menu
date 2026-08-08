@@ -1,73 +1,270 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#fffaf7">
-  <meta name="description" content="Tigotan Vegan & Gluten Free Menu — choose your preferred language.">
-  <title>Tigotan | Vegan & Gluten Free Menu</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=Permanent+Marker&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tigotan Menu</title>
+
+    <meta name="description" content="Tigotan Restaurant Digital Menu">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                repeating-linear-gradient(
+                    135deg,
+                    rgba(210, 35, 55, 0.025) 0,
+                    rgba(210, 35, 55, 0.025) 1px,
+                    transparent 1px,
+                    transparent 8px
+                ),
+                #fffdfb;
+            color: #111;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 26px 22px 0;
+        }
+
+        .languages {
+            width: 100%;
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px 20px;
+        }
+
+        .language-card {
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            padding: 16px 22px;
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid #f1c6cc;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #111;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+            transition:
+                transform 0.18s ease,
+                box-shadow 0.18s ease,
+                border-color 0.18s ease;
+        }
+
+        .language-card:hover {
+            transform: translateY(-2px);
+            border-color: #d71936;
+            box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .flag {
+            width: 42px;
+            height: 30px;
+            object-fit: contain;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .language-name {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+        }
+
+        .arrow {
+            margin-left: auto;
+            color: #d71936;
+            font-size: 31px;
+            font-weight: 300;
+            line-height: 1;
+            padding-left: 15px;
+        }
+
+        .footer {
+            width: 100%;
+            margin-top: 58px;
+            text-align: center;
+        }
+
+        .footer-pattern {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .footer-pattern span {
+            width: 7px;
+            height: 9px;
+            background: #d71936;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .tagline {
+            color: #c8102e;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            padding-bottom: 22px;
+        }
+
+        @media (max-width: 700px) {
+            .page {
+                padding: 18px 14px 0;
+            }
+
+            .languages {
+                grid-template-columns: 1fr;
+                gap: 11px;
+            }
+
+            .language-card {
+                min-height: 72px;
+                padding: 14px 17px;
+            }
+
+            .language-name {
+                font-size: 20px;
+            }
+
+            .flag {
+                width: 38px;
+                height: 27px;
+                margin-right: 16px;
+            }
+
+            .arrow {
+                font-size: 28px;
+            }
+
+            .footer {
+                margin-top: 40px;
+            }
+
+            .tagline {
+                font-size: 16px;
+                letter-spacing: 3px;
+            }
+
+            .footer-pattern span {
+                width: 6px;
+                height: 8px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <main class="landing">
-    <div class="paper-texture" aria-hidden="true"></div>
 
-    <section class="hero" aria-labelledby="page-title">
-      <p class="eyebrow">TIGOTAN</p>
-      <h1 id="page-title">SCAN OUR MENU</h1>
-      <p class="diet">VEGAN / GLUTEN FREE</p>
-      <p class="slogan">YOU DINE, YOUR WAY</p>
-      <span class="divider" aria-hidden="true"></span>
-    </section>
+    <main class="page">
 
-    <section class="language-section" aria-labelledby="language-title">
-      <h2 id="language-title">Choose your preferred language</h2>
-      <p class="intro">Discover our Vegan &amp; Gluten Free Menu<br>in your preferred language.</p>
+        <section class="languages" aria-label="Choose your language">
 
-      <nav class="language-grid" aria-label="Menu languages">
-        <a class="language-card" href="/en/menu.pdf" target="_blank" rel="noopener" aria-label="Open menu in English">
-          <img src="/gb.svg" alt="">
-          <span>English</span><span class="arrow">→</span>
-        </a>
-        <a class="language-card" href="/es/menu.pdf" target="_blank" rel="noopener" aria-label="Abrir menú en Español">
-          <img src="/es.svg" alt="">
-          <span>Español</span><span class="arrow">→</span>
-        </a>
-        <a class="language-card" href="/fr/menu.pdf" target="_blank" rel="noopener" aria-label="Ouvrir le menu en Français">
-          <img src="/fr.svg" alt="">
-          <span>Français</span><span class="arrow">→</span>
-        </a>
-        <a class="language-card" href="/it/menu.pdf" target="_blank" rel="noopener" aria-label="Apri il menu in Italiano">
-          <img src="/it.svg" alt="">
-          <span>Italiano</span><span class="arrow">→</span>
-        </a>
-        <a class="language-card" href="/de/menu.pdf" target="_blank" rel="noopener" aria-label="Menü auf Deutsch öffnen">
-          <img src="/de.svg" alt="">
-          <span>Deutsch</span><span class="arrow">→</span>
-        </a>
-        <a class="language-card" href="/nl/menu.pdf" target="_blank" rel="noopener" aria-label="Open het menu in het Nederlands">
-          <img src="/nl.svg" alt="">
-          <span>Nederlands</span><span class="arrow">→</span>
-        </a>
-        <a class="language-card" href="/is/menu.pdf" target="_blank" rel="noopener" aria-label="Opna matseðil á Íslensku">
-          <img src="/is.svg" alt="">
-          <span>Íslenska</span><span class="arrow">→</span>
-        </a>
-        <a class="language-card" href="/sv/menu.pdf" target="_blank" rel="noopener" aria-label="Öppna menyn på Svenska">
-          <img src="/se.svg" alt="">
-          <span>Svenska</span><span class="arrow">→</span>
-        </a>
-      </nav>
-    </section>
+            <!-- ENGLISH -->
+            <a class="language-card" href="en/menu.pdf">
+                <img class="flag" src="gb.svg" alt="English">
+                <span class="language-name">English</span>
+                <span class="arrow" aria-hidden="true">→</span>
+            </a>
 
-    <footer class="footer">
-      <span class="wave" aria-hidden="true"></span>
-      <p>YOU DINE, YOUR WAY</p>
-    </footer>
-  </main>
-  <script src="script.js"></script>
+            <!-- ESPAÑOL -->
+            <a class="language-card" href="es/menu.pdf">
+                <img class="flag" src="es.svg" alt="Español">
+                <span class="language-name">Español</span>
+                <span class="arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- FRANÇAIS -->
+            <a class="language-card" href="fr/menu.pdf">
+                <img class="flag" src="fr.svg" alt="Français">
+                <span class="language-name">Français</span>
+                <span class="arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- ITALIANO -->
+            <a class="language-card" href="it/menu.pdf">
+                <img class="flag" src="it.svg" alt="Italiano">
+                <span class="language-name">Italiano</span>
+                <span class="arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- DEUTSCH -->
+            <a class="language-card" href="de/menu.pdf">
+                <img class="flag" src="de.svg" alt="Deutsch">
+                <span class="language-name">Deutsch</span>
+                <span class="arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- NEDERLANDS -->
+            <a class="language-card" href="nl/menu.pdf">
+                <img class="flag" src="nl.svg" alt="Nederlands">
+                <span class="language-name">Nederlands</span>
+                <span class="arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- ÍSLENSKA -->
+            <a class="language-card" href="is/menu.pdf">
+                <img class="flag" src="is.svg" alt="Íslenska">
+                <span class="language-name">Íslenska</span>
+                <span class="arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- SVENSKA -->
+            <a class="language-card" href="sv/menu.pdf">
+                <img class="flag" src="se.svg" alt="Svenska">
+                <span class="language-name">Svenska</span>
+                <span class="arrow" aria-hidden="true">→</span>
+            </a>
+
+        </section>
+
+        <footer class="footer">
+
+            <div class="footer-pattern" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="tagline">
+                YOU DINE, YOUR WAY
+            </div>
+
+        </footer>
+
+    </main>
+
 </body>
 </html>
