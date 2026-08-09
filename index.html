@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TIGOTAN — Vegan / Gluten Free Menu</title>
+<title>TIGOTAN – Vegan / Gluten Free Menu</title>
 
 <style>
     * {
         box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
         margin: 0;
         padding: 0;
         min-height: 100%;
@@ -19,364 +20,350 @@
 
     body {
         background:
-            linear-gradient(135deg, rgba(180, 30, 35, 0.025) 25%, transparent 25%) 0 0 / 8px 8px,
-            linear-gradient(315deg, rgba(180, 30, 35, 0.018) 25%, transparent 25%) 0 0 / 8px 8px,
-            #fbf5ed;
-        color: #171717;
+            radial-gradient(circle at 10% 20%, rgba(185, 32, 40, 0.035) 0 1px, transparent 1.5px),
+            radial-gradient(circle at 90% 70%, rgba(185, 32, 40, 0.035) 0 1px, transparent 1.5px),
+            #fffaf4;
+        background-size: 9px 9px, 11px 11px;
+        color: #15191c;
         font-family: Georgia, "Times New Roman", serif;
         overflow-x: hidden;
     }
 
-    .page {
-        min-height: 100vh;
-        position: relative;
-        padding: 34px 28px 105px;
-        overflow: hidden;
-    }
-
-    /* subtle decorative side texture */
-    .page::before,
-    .page::after {
+    /* Soft decorative texture on both sides */
+    body::before,
+    body::after {
         content: "";
-        position: absolute;
-        top: 390px;
-        width: 230px;
-        height: 560px;
-        opacity: 0.16;
+        position: fixed;
+        top: 22%;
+        bottom: 8%;
+        width: 18%;
         pointer-events: none;
+        opacity: 0.28;
+        z-index: 0;
         background:
-            radial-gradient(circle at 30% 30%, #d3232a 0 1px, transparent 2px),
-            radial-gradient(circle at 70% 60%, #d3232a 0 1px, transparent 2px),
-            radial-gradient(circle at 45% 80%, #d3232a 0 1px, transparent 2px);
-        background-size: 15px 15px, 19px 19px, 13px 13px;
-        filter: blur(0.4px);
+            radial-gradient(
+                ellipse at center,
+                rgba(214, 45, 50, 0.20) 0%,
+                rgba(214, 45, 50, 0.12) 25%,
+                rgba(214, 45, 50, 0.055) 48%,
+                transparent 72%
+            );
+        filter: blur(1px);
     }
 
-    .page::before {
-        left: -105px;
-        transform: rotate(10deg);
+    body::before {
+        left: -5%;
+        transform: rotate(-8deg);
     }
 
-    .page::after {
-        right: -105px;
-        transform: rotate(-10deg);
+    body::after {
+        right: -5%;
+        transform: rotate(8deg);
     }
 
-    .content {
+    .page {
         position: relative;
-        z-index: 2;
-        max-width: 1080px;
-        margin: 0 auto;
+        z-index: 1;
+        min-height: 100vh;
+        padding: 12px 20px 105px;
+        text-align: center;
     }
 
-    /* HEADER */
+    /* ---------------- HEADER ---------------- */
 
     .brand {
-        text-align: center;
-        margin-bottom: 4px;
-    }
-
-    .brand h1 {
         margin: 0;
-        color: #c91f28;
+        color: #c91f2a;
         font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(64px, 9vw, 126px);
-        line-height: 0.9;
-        letter-spacing: 7px;
-        font-weight: 900;
-        text-transform: uppercase;
+        font-size: clamp(62px, 8vw, 108px);
+        font-weight: 700;
+        line-height: 0.95;
+        letter-spacing: 2px;
     }
 
     .subtitle {
-        margin-top: 20px;
-        text-align: center;
-        color: #c91f28;
+        margin: 18px 0 0;
+        color: #c91f2a;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: clamp(26px, 3.4vw, 48px);
-        line-height: 1.05;
-        font-weight: 900;
+        font-size: clamp(28px, 3.2vw, 46px);
+        font-weight: 800;
         letter-spacing: 1px;
-        text-transform: uppercase;
+        line-height: 1.05;
     }
 
-    /* YOU DINE YOUR WAY */
-
-    .slogan-wrap {
+    .tagline {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 22px;
-        margin: 22px auto 0;
-    }
-
-    .slogan-line {
-        width: 65px;
-        height: 3px;
-        background: #c91f28;
-    }
-
-    .slogan {
-        color: #c91f28;
+        gap: 18px;
+        margin: 24px auto 0;
+        color: #c91f2a;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: clamp(18px, 2vw, 28px);
+        font-size: clamp(19px, 2vw, 29px);
         font-weight: 800;
         letter-spacing: 2px;
-        text-transform: uppercase;
-        white-space: nowrap;
     }
 
-    /* HAND-DRAWN DETAILS */
+    .tagline::before,
+    .tagline::after {
+        content: "";
+        width: 55px;
+        height: 3px;
+        background: #c91f2a;
+        display: block;
+    }
 
+    /* Decorative hand-drawn style marks */
     .decor {
         width: 100%;
-        max-width: 700px;
-        margin: 16px auto 0;
-        display: flex;
-        justify-content: space-between;
-        padding: 0 35px;
+        max-width: 760px;
+        height: 58px;
+        margin: 8px auto 0;
+        position: relative;
     }
 
-    .marks {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        height: 40px;
-    }
-
-    .marks span {
-        display: block;
+    .decor span {
+        position: absolute;
+        width: 30px;
         height: 4px;
-        background: #c91f28;
-        border-radius: 5px;
+        background: #c91f2a;
+        border-radius: 50%;
     }
 
-    .marks.left span:nth-child(1) {
-        width: 34px;
-        transform: rotate(25deg);
+    .decor .l1 {
+        left: 17%;
+        top: 23px;
+        transform: rotate(28deg);
     }
 
-    .marks.left span:nth-child(2) {
-        width: 24px;
+    .decor .l2 {
+        left: 20%;
+        top: 33px;
         transform: rotate(-5deg);
     }
 
-    .marks.left span:nth-child(3) {
-        width: 12px;
-        transform: rotate(-25deg);
+    .decor .l3 {
+        left: 23%;
+        top: 25px;
+        transform: rotate(-28deg);
     }
 
-    .marks.right {
-        transform: scaleX(-1);
+    .decor .r1 {
+        right: 17%;
+        top: 23px;
+        transform: rotate(-28deg);
     }
 
-    /* LANGUAGE INTRO */
-
-    .intro {
-        text-align: center;
-        margin: 30px auto 30px;
+    .decor .r2 {
+        right: 20%;
+        top: 33px;
+        transform: rotate(5deg);
     }
 
-    .intro h2 {
+    .decor .r3 {
+        right: 23%;
+        top: 25px;
+        transform: rotate(28deg);
+    }
+
+    /* ---------------- LANGUAGE INTRO ---------------- */
+
+    .language-heading {
+        margin: 0 auto;
+        max-width: 760px;
+    }
+
+    .language-heading h2 {
         margin: 0;
+        color: #111820;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: clamp(30px, 4vw, 52px);
-        line-height: 0.98;
+        font-size: clamp(34px, 4vw, 57px);
         font-weight: 900;
-        letter-spacing: -1px;
+        line-height: 0.98;
+        letter-spacing: -1.5px;
         text-transform: uppercase;
-        color: #171717;
     }
 
-    .intro p {
-        margin: 18px auto 0;
-        max-width: 650px;
+    .language-heading p {
+        margin: 22px 0 0;
+        color: #34383d;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: clamp(17px, 2vw, 24px);
-        line-height: 1.45;
-        color: #3e3e3e;
+        font-size: clamp(18px, 1.8vw, 25px);
+        line-height: 1.35;
     }
 
-    /* LANGUAGE GRID */
+    /* ---------------- LANGUAGE BUTTONS ---------------- */
 
     .languages {
-        width: min(100%, 900px);
-        margin: 28px auto 0;
+        width: min(850px, 94vw);
+        margin: 34px auto 0;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 13px 16px;
+        gap: 12px 14px;
     }
 
     .language {
+        min-height: 72px;
+        padding: 10px 18px;
         display: flex;
         align-items: center;
-        min-height: 84px;
-        padding: 12px 22px;
         text-decoration: none;
-        color: #161616;
+        color: #111820;
         background: rgba(255, 252, 247, 0.82);
-        border: 1.5px solid #d9232e;
-        border-radius: 13px;
-        box-shadow: 0 2px 7px rgba(120, 30, 30, 0.035);
+        border: 1.5px solid #d9272e;
+        border-radius: 12px;
         transition:
-            transform 0.18s ease,
-            background 0.18s ease,
-            box-shadow 0.18s ease;
+            transform 0.15s ease,
+            background 0.15s ease,
+            box-shadow 0.15s ease;
     }
 
     .language:hover {
         transform: translateY(-2px);
-        background: #fffdfa;
-        box-shadow: 0 7px 18px rgba(120, 30, 30, 0.10);
-    }
-
-    .language:active {
-        transform: translateY(0);
+        background: #ffffff;
+        box-shadow: 0 5px 15px rgba(190, 30, 40, 0.12);
     }
 
     .flag {
-        width: 54px;
-        height: 36px;
-        object-fit: cover;
-        flex: 0 0 54px;
-        border-radius: 3px;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+        width: 48px;
+        min-width: 48px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+        font-size: 35px;
+        line-height: 1;
     }
 
     .language-name {
-        margin-left: 18px;
+        margin-left: 16px;
+        flex: 1;
+        text-align: left;
         font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(20px, 2.5vw, 29px);
+        font-size: clamp(20px, 2vw, 28px);
         font-weight: 700;
-        line-height: 1;
         white-space: nowrap;
     }
 
     .arrow {
-        margin-left: auto;
-        color: #c91f28;
+        color: #c91f2a;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 32px;
         font-weight: 300;
         line-height: 1;
-        transition: transform 0.18s ease;
+        margin-left: 10px;
     }
 
-    .language:hover .arrow {
-        transform: translateX(5px);
-    }
+    /* ---------------- BOTTOM WAVES ---------------- */
 
-    /* BOTTOM DECORATION */
-
-    .bottom {
+    .waves {
         position: absolute;
-        z-index: 3;
         left: 0;
         right: 0;
         bottom: 18px;
-        height: 58px;
+        height: 70px;
         overflow: hidden;
+        pointer-events: none;
     }
 
     .wave {
         position: absolute;
-        left: -2%;
-        width: 104%;
-        height: 20px;
-        border-top: 6px solid #c91f28;
+        left: -3%;
+        width: 106%;
+        height: 27px;
+    }
+
+    .wave::before {
+        content: "";
+        position: absolute;
+        left: -20px;
+        right: -20px;
+        top: 8px;
+        height: 14px;
+        border-top: 7px solid #d3262d;
         border-radius: 50%;
         transform: rotate(0deg);
     }
 
     .wave.one {
-        top: 8px;
+        top: 0;
     }
 
     .wave.two {
-        top: 31px;
+        top: 28px;
     }
 
-    /* MOBILE */
+    /* ---------------- MOBILE ---------------- */
 
     @media (max-width: 700px) {
+
         .page {
-            padding: 25px 16px 100px;
+            padding: 20px 14px 105px;
         }
 
-        .brand h1 {
-            letter-spacing: 4px;
+        .brand {
+            font-size: clamp(55px, 17vw, 85px);
         }
 
         .subtitle {
-            font-size: 25px;
-            line-height: 1.15;
-            margin-top: 14px;
+            font-size: clamp(22px, 6vw, 34px);
+            line-height: 1.1;
         }
 
-        .slogan-wrap {
+        .tagline {
+            font-size: 17px;
             gap: 10px;
         }
 
-        .slogan-line {
-            width: 32px;
-        }
-
-        .slogan {
-            font-size: 15px;
-            letter-spacing: 1px;
+        .tagline::before,
+        .tagline::after {
+            width: 35px;
         }
 
         .decor {
-            padding: 0 5px;
+            height: 42px;
         }
 
-        .intro {
-            margin-top: 25px;
+        .language-heading h2 {
+            font-size: 32px;
         }
 
-        .intro h2 {
-            font-size: 29px;
-        }
-
-        .intro p {
-            font-size: 16px;
+        .language-heading p {
+            font-size: 17px;
+            margin-top: 14px;
         }
 
         .languages {
             grid-template-columns: 1fr;
+            width: min(560px, 94vw);
             gap: 10px;
-            margin-top: 24px;
+            margin-top: 25px;
         }
 
         .language {
-            min-height: 72px;
-            padding: 10px 16px;
+            min-height: 67px;
         }
 
         .flag {
-            width: 48px;
-            height: 32px;
-            flex-basis: 48px;
+            width: 43px;
+            min-width: 43px;
+            font-size: 31px;
         }
 
         .language-name {
-            margin-left: 15px;
-            font-size: 22px;
+            font-size: 23px;
         }
 
         .arrow {
             font-size: 28px;
         }
-    }
 
-    @media (min-width: 701px) {
-        .language:nth-child(1) { order: 1; }
-        .language:nth-child(2) { order: 2; }
-        .language:nth-child(3) { order: 3; }
-        .language:nth-child(4) { order: 4; }
-        .language:nth-child(5) { order: 5; }
-        .language:nth-child(6) { order: 6; }
-        .language:nth-child(7) { order: 7; }
-        .language:nth-child(8) { order: 8; }
+        body::before,
+        body::after {
+            width: 24%;
+            opacity: 0.2;
+        }
     }
 </style>
 </head>
@@ -385,110 +372,94 @@
 
 <div class="page">
 
-    <main class="content">
+    <!-- HEADER -->
+    <h1 class="brand">TIGOTAN</h1>
 
-        <!-- TIGOTAN -->
-        <header class="brand">
-            <h1>TIGOTAN</h1>
+    <div class="subtitle">
+        VEGAN / GLUTEN FREE MENU
+    </div>
 
-            <div class="subtitle">
-                VEGAN / GLUTEN FREE MENU
-            </div>
+    <div class="tagline">
+        YOU DINE, YOUR WAY
+    </div>
 
-            <div class="slogan-wrap">
-                <div class="slogan-line"></div>
-                <div class="slogan">YOU DINE, YOUR WAY</div>
-                <div class="slogan-line"></div>
-            </div>
+    <div class="decor" aria-hidden="true">
+        <span class="l1"></span>
+        <span class="l2"></span>
+        <span class="l3"></span>
+        <span class="r1"></span>
+        <span class="r2"></span>
+        <span class="r3"></span>
+    </div>
 
-            <div class="decor">
-                <div class="marks left">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+    <!-- LANGUAGE TITLE -->
+    <section class="language-heading">
+        <h2>
+            CHOOSE YOUR<br>
+            PREFERRED LANGUAGE
+        </h2>
 
-                <div class="marks right">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </header>
+        <p>
+            Discover our Vegan &amp; Gluten Free Menu<br>
+            in your preferred language.
+        </p>
+    </section>
 
+    <!-- LANGUAGE LINKS -->
+    <nav class="languages" aria-label="Menu languages">
 
-        <!-- INTRO -->
-        <section class="intro">
-            <h2>
-                CHOOSE YOUR<br>
-                PREFERRED LANGUAGE
-            </h2>
+        <a class="language" href="en/menu.pdf">
+            <span class="flag">🇬🇧</span>
+            <span class="language-name">English</span>
+            <span class="arrow">→</span>
+        </a>
 
-            <p>
-                Discover our Vegan &amp; Gluten Free Menu<br>
-                in your preferred language.
-            </p>
-        </section>
+        <a class="language" href="es/menu.pdf">
+            <span class="flag">🇪🇸</span>
+            <span class="language-name">Español</span>
+            <span class="arrow">→</span>
+        </a>
 
+        <a class="language" href="fr/menu.pdf">
+            <span class="flag">🇫🇷</span>
+            <span class="language-name">Français</span>
+            <span class="arrow">→</span>
+        </a>
 
-        <!-- LANGUAGES -->
-        <section class="languages">
+        <a class="language" href="it/menu.pdf">
+            <span class="flag">🇮🇹</span>
+            <span class="language-name">Italiano</span>
+            <span class="arrow">→</span>
+        </a>
 
-            <a class="language" href="en/menu.pdf" target="_blank">
-                <img class="flag" src="gb.svg" alt="English">
-                <span class="language-name">English</span>
-                <span class="arrow">→</span>
-            </a>
+        <a class="language" href="de/menu.pdf">
+            <span class="flag">🇩🇪</span>
+            <span class="language-name">Deutsch</span>
+            <span class="arrow">→</span>
+        </a>
 
-            <a class="language" href="es/menu.pdf" target="_blank">
-                <img class="flag" src="es.svg" alt="Español">
-                <span class="language-name">Español</span>
-                <span class="arrow">→</span>
-            </a>
+        <a class="language" href="nl/menu.pdf">
+            <span class="flag">🇳🇱</span>
+            <span class="language-name">Nederlands</span>
+            <span class="arrow">→</span>
+        </a>
 
-            <a class="language" href="fr/menu.pdf" target="_blank">
-                <img class="flag" src="fr.svg" alt="Français">
-                <span class="language-name">Français</span>
-                <span class="arrow">→</span>
-            </a>
+        <a class="language" href="is/menu.pdf">
+            <span class="flag">🇮🇸</span>
+            <span class="language-name">Íslenska</span>
+            <span class="arrow">→</span>
+        </a>
 
-            <a class="language" href="it/menu.pdf" target="_blank">
-                <img class="flag" src="it.svg" alt="Italiano">
-                <span class="language-name">Italiano</span>
-                <span class="arrow">→</span>
-            </a>
+        <a class="language" href="sv/menu.pdf">
+            <span class="flag">🇸🇪</span>
+            <span class="language-name">Svenska</span>
+            <span class="arrow">→</span>
+        </a>
 
-            <a class="language" href="de/menu.pdf" target="_blank">
-                <img class="flag" src="de.svg" alt="Deutsch">
-                <span class="language-name">Deutsch</span>
-                <span class="arrow">→</span>
-            </a>
+    </nav>
 
-            <a class="language" href="nl/menu.pdf" target="_blank">
-                <img class="flag" src="nl.svg" alt="Nederlands">
-                <span class="language-name">Nederlands</span>
-                <span class="arrow">→</span>
-            </a>
-
-            <a class="language" href="is/menu.pdf" target="_blank">
-                <img class="flag" src="is.svg" alt="Íslenska">
-                <span class="language-name">Íslenska</span>
-                <span class="arrow">→</span>
-            </a>
-
-            <a class="language" href="sv/menu.pdf" target="_blank">
-                <img class="flag" src="se.svg" alt="Svenska">
-                <span class="language-name">Svenska</span>
-                <span class="arrow">→</span>
-            </a>
-
-        </section>
-
-    </main>
-
-
-    <!-- BOTTOM TIGOTAN DETAIL -->
-    <div class="bottom">
+    <!-- BOTTOM DECORATION -->
+    <div class="waves" aria-hidden="true">
         <div class="wave one"></div>
         <div class="wave two"></div>
     </div>
