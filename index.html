@@ -4,39 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tigotan | Vegan / Gluten Free Menu</title>
-
-    <meta
-        name="description"
-        content="Tigotan Vegan / Gluten Free Menu. Choose your preferred language."
-    >
+    <title>TIGOTAN — Vegan / Gluten Free Menu</title>
 
     <style>
         * {
             box-sizing: border-box;
         }
 
-        html {
-            margin: 0;
-            padding: 0;
-        }
-
+        html,
         body {
             margin: 0;
             padding: 0;
-            min-height: 100vh;
-            background: #fffdf8;
-            color: #151515;
-            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100%;
+        }
+
+        body {
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(193, 42, 55, 0.025) 0,
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 80% 75%,
+                    rgba(193, 42, 55, 0.02) 0,
+                    transparent 30%
+                ),
+                #f8f1e8;
+
+            color: #241d19;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
         }
 
         .page {
             width: 100%;
             min-height: 100vh;
+
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 38px 20px 0;
+
+            padding: 42px 20px 0;
         }
 
         /* =========================
@@ -45,98 +57,174 @@
 
         .hero {
             width: 100%;
-            max-width: 900px;
+            max-width: 920px;
+
             text-align: center;
-            padding: 8px 10px 34px;
+
+            padding: 10px 10px 34px;
         }
 
         .hero h1 {
             margin: 0;
-            color: #c8102e;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: clamp(42px, 7vw, 72px);
+
+            color: #c3263b;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: clamp(48px, 8vw, 78px);
             font-weight: 700;
+
             line-height: 0.95;
-            letter-spacing: 3px;
+            letter-spacing: 5px;
         }
 
-        .hero p {
-            margin: 18px 0 0;
-            color: #171717;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: clamp(20px, 3vw, 30px);
+        .hero-subtitle {
+            margin: 17px 0 0;
+
+            color: #29211d;
+
+            font-size: clamp(20px, 3vw, 29px);
             font-weight: 700;
-            line-height: 1.15;
-            letter-spacing: 1.5px;
+
+            line-height: 1.1;
+            letter-spacing: 2px;
+
             text-transform: uppercase;
         }
 
         /* =========================
-           LANGUAGE BUTTONS
+           DECORATIVE LINE
+        ========================= */
+
+        .top-decoration {
+            width: 100%;
+            max-width: 920px;
+
+            height: 10px;
+
+            position: relative;
+
+            margin-bottom: 24px;
+        }
+
+        .top-decoration::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            top: 4px;
+
+            height: 1px;
+
+            background: #c3263b;
+        }
+
+        .top-decoration::after {
+            content: "◆";
+
+            position: absolute;
+
+            left: 50%;
+            top: -5px;
+
+            transform: translateX(-50%);
+
+            color: #c3263b;
+
+            font-size: 12px;
+
+            background: #f8f1e8;
+
+            padding: 0 12px;
+        }
+
+        /* =========================
+           LANGUAGES
         ========================= */
 
         .languages {
             width: 100%;
-            max-width: 900px;
+            max-width: 920px;
+
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px 18px;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 15px 20px;
         }
 
         .language-card {
-            min-height: 76px;
+            min-height: 78px;
+
             display: flex;
             align-items: center;
-            padding: 13px 20px;
 
-            background: rgba(255, 255, 255, 0.96);
-            border: 2px solid #d71936;
-            border-radius: 5px;
+            padding: 14px 20px;
 
-            color: #171717;
+            background: #fffdf9;
+
+            border: 1px solid #c3263b;
+
+            border-radius: 2px;
+
             text-decoration: none;
 
-            box-shadow: none;
+            color: #241d19;
 
             transition:
+                background 0.18s ease,
                 transform 0.18s ease,
-                background-color 0.18s ease,
                 box-shadow 0.18s ease;
         }
 
         .language-card:hover {
+            background: #fff8f2;
+
             transform: translateY(-2px);
-            background: #fff8f4;
-            box-shadow: 0 5px 14px rgba(199, 16, 46, 0.10);
+
+            box-shadow:
+                0 7px 18px rgba(100, 35, 35, 0.10);
         }
 
         .language-card:active {
-            transform: scale(0.985);
+            transform: translateY(0);
         }
 
         .flag {
             width: 43px;
-            height: 31px;
+            height: 30px;
+
             object-fit: contain;
+
             flex-shrink: 0;
-            margin-right: 18px;
+
+            margin-right: 19px;
         }
 
         .language-name {
-            font-family: Georgia, "Times New Roman", serif;
             font-size: 21px;
+
             font-weight: 700;
-            line-height: 1.1;
+
+            letter-spacing: 0.2px;
         }
 
         .arrow {
             margin-left: auto;
-            padding-left: 14px;
 
-            color: #d71936;
+            color: #c3263b;
+
             font-family: Arial, Helvetica, sans-serif;
-            font-size: 29px;
-            font-weight: 400;
+
+            font-size: 27px;
+            font-weight: 300;
+
             line-height: 1;
         }
 
@@ -146,48 +234,76 @@
 
         .footer {
             width: 100%;
-            max-width: 900px;
+            max-width: 920px;
+
             margin-top: 48px;
-            padding-bottom: 26px;
+
+            padding-bottom: 28px;
+
             text-align: center;
         }
 
-        .footer-lines {
-            position: relative;
+        .footer-decoration {
             width: 100%;
-            height: 30px;
+
+            height: 27px;
+
+            position: relative;
+
             margin-bottom: 17px;
+
             overflow: hidden;
         }
 
-        .footer-lines::before,
-        .footer-lines::after {
+        .footer-decoration::before {
             content: "";
+
             position: absolute;
+
             left: -5%;
             width: 110%;
-            height: 13px;
-            border-top: 3px solid #d71936;
+
+            top: 5px;
+
+            height: 15px;
+
+            border-top: 2px solid #c3263b;
+
             border-radius: 50%;
+
+            transform: rotate(1deg);
         }
 
-        .footer-lines::before {
-            top: 4px;
-            transform: rotate(1.2deg);
-        }
+        .footer-decoration::after {
+            content: "";
 
-        .footer-lines::after {
-            top: 12px;
+            position: absolute;
+
+            left: -5%;
+            width: 110%;
+
+            top: 13px;
+
+            height: 15px;
+
+            border-top: 1px solid #c3263b;
+
+            border-radius: 50%;
+
             transform: rotate(-1deg);
         }
 
         .tagline {
-            color: #c8102e;
-            font-family: Georgia, "Times New Roman", serif;
+            color: #c3263b;
+
             font-size: clamp(17px, 2.5vw, 23px);
+
             font-weight: 700;
+
             letter-spacing: 3px;
+
             line-height: 1.2;
+
             text-transform: uppercase;
         }
 
@@ -198,38 +314,46 @@
         @media (max-width: 700px) {
 
             .page {
-                padding: 25px 14px 0;
+                padding: 27px 14px 0;
             }
 
             .hero {
-                padding: 7px 5px 27px;
+                padding-bottom: 27px;
             }
 
             .hero h1 {
-                font-size: 45px;
-                letter-spacing: 2px;
+                font-size: 48px;
+                letter-spacing: 3px;
             }
 
-            .hero p {
+            .hero-subtitle {
                 margin-top: 13px;
-                font-size: 20px;
-                letter-spacing: 0.8px;
+
+                font-size: 19px;
+                letter-spacing: 1px;
+            }
+
+            .top-decoration {
+                margin-bottom: 18px;
             }
 
             .languages {
                 grid-template-columns: 1fr;
+
                 gap: 10px;
             }
 
             .language-card {
-                min-height: 67px;
-                padding: 11px 15px;
+                min-height: 68px;
+
+                padding: 11px 16px;
             }
 
             .flag {
                 width: 39px;
                 height: 28px;
-                margin-right: 15px;
+
+                margin-right: 16px;
             }
 
             .language-name {
@@ -237,32 +361,19 @@
             }
 
             .arrow {
-                font-size: 27px;
+                font-size: 26px;
             }
 
             .footer {
-                margin-top: 37px;
+                margin-top: 38px;
+
                 padding-bottom: 20px;
             }
 
             .tagline {
                 font-size: 16px;
+
                 letter-spacing: 2.2px;
-            }
-        }
-
-        @media (max-width: 380px) {
-
-            .hero h1 {
-                font-size: 39px;
-            }
-
-            .hero p {
-                font-size: 18px;
-            }
-
-            .language-name {
-                font-size: 18px;
             }
         }
     </style>
@@ -272,26 +383,28 @@
 
     <main class="page">
 
-        <!-- =========================
-             TIGOTAN HEADER
-        ========================== -->
-
         <header class="hero">
+
             <h1>TIGOTAN</h1>
-            <p>VEGAN / GLUTEN FREE MENU</p>
+
+            <div class="hero-subtitle">
+                VEGAN / GLUTEN FREE MENU
+            </div>
+
         </header>
 
 
-        <!-- =========================
-             LANGUAGE SELECTION
-        ========================== -->
+        <div
+            class="top-decoration"
+            aria-hidden="true"
+        ></div>
+
 
         <section
             class="languages"
-            aria-label="Choose your preferred language"
+            aria-label="Choose your language"
         >
 
-            <!-- ENGLISH -->
             <a
                 class="language-card"
                 href="en/menu.pdf"
@@ -303,12 +416,17 @@
                     src="gb.svg"
                     alt="English"
                 >
-                <span class="language-name">English</span>
-                <span class="arrow" aria-hidden="true">→</span>
+
+                <span class="language-name">
+                    English
+                </span>
+
+                <span class="arrow">
+                    →
+                </span>
             </a>
 
 
-            <!-- ESPAÑOL -->
             <a
                 class="language-card"
                 href="es/menu.pdf"
@@ -320,12 +438,17 @@
                     src="es.svg"
                     alt="Español"
                 >
-                <span class="language-name">Español</span>
-                <span class="arrow" aria-hidden="true">→</span>
+
+                <span class="language-name">
+                    Español
+                </span>
+
+                <span class="arrow">
+                    →
+                </span>
             </a>
 
 
-            <!-- FRANÇAIS -->
             <a
                 class="language-card"
                 href="fr/menu.pdf"
@@ -337,12 +460,17 @@
                     src="fr.svg"
                     alt="Français"
                 >
-                <span class="language-name">Français</span>
-                <span class="arrow" aria-hidden="true">→</span>
+
+                <span class="language-name">
+                    Français
+                </span>
+
+                <span class="arrow">
+                    →
+                </span>
             </a>
 
 
-            <!-- ITALIANO -->
             <a
                 class="language-card"
                 href="it/menu.pdf"
@@ -354,12 +482,17 @@
                     src="it.svg"
                     alt="Italiano"
                 >
-                <span class="language-name">Italiano</span>
-                <span class="arrow" aria-hidden="true">→</span>
+
+                <span class="language-name">
+                    Italiano
+                </span>
+
+                <span class="arrow">
+                    →
+                </span>
             </a>
 
 
-            <!-- DEUTSCH -->
             <a
                 class="language-card"
                 href="de/menu.pdf"
@@ -371,12 +504,17 @@
                     src="de.svg"
                     alt="Deutsch"
                 >
-                <span class="language-name">Deutsch</span>
-                <span class="arrow" aria-hidden="true">→</span>
+
+                <span class="language-name">
+                    Deutsch
+                </span>
+
+                <span class="arrow">
+                    →
+                </span>
             </a>
 
 
-            <!-- NEDERLANDS -->
             <a
                 class="language-card"
                 href="nl/menu.pdf"
@@ -388,12 +526,17 @@
                     src="nl.svg"
                     alt="Nederlands"
                 >
-                <span class="language-name">Nederlands</span>
-                <span class="arrow" aria-hidden="true">→</span>
+
+                <span class="language-name">
+                    Nederlands
+                </span>
+
+                <span class="arrow">
+                    →
+                </span>
             </a>
 
 
-            <!-- ÍSLENSKA -->
             <a
                 class="language-card"
                 href="is/menu.pdf"
@@ -405,12 +548,17 @@
                     src="is.svg"
                     alt="Íslenska"
                 >
-                <span class="language-name">Íslenska</span>
-                <span class="arrow" aria-hidden="true">→</span>
+
+                <span class="language-name">
+                    Íslenska
+                </span>
+
+                <span class="arrow">
+                    →
+                </span>
             </a>
 
 
-            <!-- SVENSKA -->
             <a
                 class="language-card"
                 href="sv/menu.pdf"
@@ -422,21 +570,23 @@
                     src="se.svg"
                     alt="Svenska"
                 >
-                <span class="language-name">Svenska</span>
-                <span class="arrow" aria-hidden="true">→</span>
+
+                <span class="language-name">
+                    Svenska
+                </span>
+
+                <span class="arrow">
+                    →
+                </span>
             </a>
 
         </section>
 
 
-        <!-- =========================
-             FOOTER / TAGLINE
-        ========================== -->
-
         <footer class="footer">
 
             <div
-                class="footer-lines"
+                class="footer-decoration"
                 aria-hidden="true"
             ></div>
 
